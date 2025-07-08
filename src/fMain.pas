@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Pompach/
 
   ***************************************************************************
-  File last update : 2025-07-08T08:51:48.000+02:00
-  Signature : 63fe410eebd583fa0dffc9e9f2f22aae989479d5
+  File last update : 2025-07-08T09:00:30.000+02:00
+  Signature : 130bb5eec3871d24d581632a6eee858ffb167916
   ***************************************************************************
 *)
 
@@ -207,8 +207,6 @@ type
     procedure SetNiveauBatterie(const Value: integer);
     procedure SetSensDeLaFleche(const Value: TFlecheDirection);
     function getScoresList: tscorelist;
-    function getConvertedCharImageIndex(Sender: TOlfFMXTextImageFrame;
-      AChar: Char): integer;
   protected
     Joysticks: IGamolfJoystickService;
     JoystickDPADMoved: Boolean;
@@ -537,22 +535,16 @@ begin
   JoystickDPADMoved := false;
 
   txtTitreEcran.Font := dmTypoDesTitres.TypoDesTitres;
-  txtTitreEcran.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
   txtTitreEcran.AutoSize := true;
   txtLevel.Font := dmTypoDesTitres.TypoDesTitres;
-  txtLevel.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
   txtLevel.AutoSize := true;
   txtScoreActuel.Font := dmTypoDesTitres.TypoDesTitres;
-  txtScoreActuel.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
   txtScoreActuel.AutoSize := true;
   txtSequence.Font := dmTypoDesTitres.TypoDesTitres;
-  txtSequence.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
   txtSequence.AutoSize := true;
   txtScoreFinDePartie.Font := dmTypoDesTitres.TypoDesTitres;
-  txtScoreFinDePartie.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
   txtScoreFinDePartie.AutoSize := true;
   txtLevelFinDePartie.Font := dmTypoDesTitres.TypoDesTitres;
-  txtLevelFinDePartie.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
   txtLevelFinDePartie.AutoSize := true;
   jeuEnCours := false;
   Pile.onBatteryEmpty := BatterieAPlat;
@@ -637,98 +629,6 @@ begin
     jeuEnPause := true;
     tParams.save;
   end;
-end;
-
-function TfmrMain.getConvertedCharImageIndex(Sender: TOlfFMXTextImageFrame;
-AChar: Char): integer;
-begin
-  // copied from Video Title Page Generator
-  // https://github.com/DeveloppeurPascal/Video-Title-Page-Generator
-  result := -1;
-  if (result < 0) and charinset(AChar, ['a' .. 'z']) then
-    result := Sender.getImageIndexOfChar('_' + AChar);
-  if (result < 0) and charinset(AChar, ['a' .. 'z']) then
-    result := Sender.getImageIndexOfChar(chr(ord('A') + ord(AChar) - ord('a')));
-  if (result < 0) and (AChar = '?') then
-    result := Sender.getImageIndexOfChar('interrogation');
-  if (result < 0) and (AChar = '$') then
-    result := Sender.getImageIndexOfChar('dollar');
-  if (result < 0) and (AChar = '!') then
-    result := Sender.getImageIndexOfChar('exclamation');
-  if (result < 0) and (AChar = '&') then
-    result := Sender.getImageIndexOfChar('et');
-  if (result < 0) and (AChar = '%') then
-    result := Sender.getImageIndexOfChar('pourcent');
-  if (result < 0) and (AChar = '''') then
-    result := Sender.getImageIndexOfChar('apostrophe');
-  if (result < 0) and (AChar = ',') then
-    result := Sender.getImageIndexOfChar('virgule');
-  if (result < 0) and (AChar = '=') then
-    result := Sender.getImageIndexOfChar('egale');
-  if (result < 0) and (AChar = '-') then
-    result := Sender.getImageIndexOfChar('moins');
-  if (result < 0) and (AChar = '+') then
-    result := Sender.getImageIndexOfChar('plus');
-  if (result < 0) and (AChar = 'à') then
-    result := Sender.getImageIndexOfChar('_agrave');
-  if (result < 0) and (AChar = 'à') then
-    result := getConvertedCharImageIndex(Sender, 'a');
-  if (result < 0) and (AChar = 'é') then
-    result := Sender.getImageIndexOfChar('_eaigu');
-  if (result < 0) and (AChar = 'è') then
-    result := Sender.getImageIndexOfChar('_egrave');
-  if (result < 0) and (AChar = 'ê') then
-    result := Sender.getImageIndexOfChar('_ecirconflexe');
-  if (result < 0) and (AChar = 'ë') then
-    result := Sender.getImageIndexOfChar('_etrema');
-  if (result < 0) and charinset(AChar, ['é', 'è', 'ê', 'ë']) then
-    result := getConvertedCharImageIndex(Sender, 'e');
-  if (result < 0) and (AChar = 'ô') then
-    result := Sender.getImageIndexOfChar('_ocirconflexe');
-  if (result < 0) and (AChar = 'ö') then
-    result := Sender.getImageIndexOfChar('_otrema');
-  if (result < 0) and charinset(AChar, ['ô', 'ö']) then
-    result := getConvertedCharImageIndex(Sender, 'o');
-  if (result < 0) and (AChar = 'î') then
-    result := Sender.getImageIndexOfChar('_icirconflexe');
-  if (result < 0) and (AChar = 'ï') then
-    result := Sender.getImageIndexOfChar('_itrema');
-  if (result < 0) and charinset(AChar, ['î', 'ï']) then
-    result := getConvertedCharImageIndex(Sender, 'i');
-  if (result < 0) and (AChar = 'û') then
-    result := Sender.getImageIndexOfChar('_ucirconflexe');
-  if (result < 0) and (AChar = 'ü') then
-    result := Sender.getImageIndexOfChar('_utrema');
-  if (result < 0) and (AChar = 'ù') then
-    result := Sender.getImageIndexOfChar('_ugrave');
-  // if (result < 0) and (AChar = '') then // TODO : ajouter u aigu
-  // result := Sender.getImageIndexOfChar('_uaigu');
-  if (result < 0) and charinset(AChar, ['û', 'ü', 'ù']) then
-    // TODO : ajouter u aigu
-    result := getConvertedCharImageIndex(Sender, 'u');
-  if (result < 0) and (AChar = 'oe') then
-    result := Sender.getImageIndexOfChar('_oe');
-  // TODO : récupérer "oe" en minuscules
-  if (result < 0) and (AChar = 'OE') then
-    result := Sender.getImageIndexOfChar('OE');
-  // TODO : récupérer "oe" en majuscules
-  // if (result < 0) and (AChar = '...') then
-  // TODO : récupérer points de suspensions en 1 caractère
-  // result := Sender.getImageIndexOfChar('suspension'); // TODO
-  if (result < 0) and (AChar = '.') then
-    result := Sender.getImageIndexOfChar('point');
-  if (result < 0) and (AChar = ':') then
-    result := Sender.getImageIndexOfChar('deuxpoint');
-  if (result < 0) and (AChar = ':') then
-    result := Sender.getImageIndexOfChar('deux-point');
-  if (result < 0) and (AChar = ';') then
-    result := Sender.getImageIndexOfChar('pointvirgule');
-  if (result < 0) and (AChar = ';') then
-    result := Sender.getImageIndexOfChar('point-virgule');
-  if (result < 0) and (AChar = '/') then
-    result := Sender.getImageIndexOfChar('slash');
-  if (result < 0) and charinset(AChar, ['.', ',', ';', ':', '!', '''']) then
-    result := getConvertedCharImageIndex(Sender, ' ');
 end;
 
 function TfmrMain.getScoresList: tscorelist;
