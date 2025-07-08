@@ -1362,17 +1362,6 @@ object fmrMain: TfmrMain
       end
     end
   end
-  object aniEcranAAfficher: TFloatAnimation
-    Duration = 0.200000002980232200
-    StartValue = 0.000000000000000000
-    StopValue = 0.000000000000000000
-  end
-  object aniEcranAMasquer: TFloatAnimation
-    Duration = 0.200000002980232200
-    OnFinish = aniEcranAMasquerFinish
-    StartValue = 0.000000000000000000
-    StopValue = 0.000000000000000000
-  end
   object StyleEmeraldCrystal: TStyleBook
     UseStyleManager = True
     Styles = <

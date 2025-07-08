@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Pompach/
 
   ***************************************************************************
-  File last update : 2025-07-08T09:00:30.000+02:00
-  Signature : 130bb5eec3871d24d581632a6eee858ffb167916
+  File last update : 2025-07-08T09:51:26.000+02:00
+  Signature : dc40330d38b26f1942055c57e2cacf10115d59b7
   ***************************************************************************
 *)
 
@@ -85,8 +85,6 @@ type
     lblMenuScore: TLabel;
     btnCredits: TRoundRect;
     lblMenuCredits: TLabel;
-    aniEcranAAfficher: TFloatAnimation;
-    aniEcranAMasquer: TFloatAnimation;
     StyleEmeraldCrystal: TStyleBook;
     btnDroite: TSpeedButton;
     btnGauche: TSpeedButton;
@@ -156,7 +154,6 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
     procedure btnMenuClick(Sender: TObject);
-    procedure aniEcranAMasquerFinish(Sender: TObject);
     procedure btnCreditsClick(Sender: TObject);
     procedure btnPlayClick(Sender: TObject);
     procedure btnScoreClick(Sender: TObject);
@@ -178,7 +175,7 @@ type
     procedure Layout6Resized(Sender: TObject);
   private
     { Déclarations privées }
-    ecranActuel, ecranAVenir: TLayout;
+    ecranActuel: TLayout;
     Flevel: integer;
     Fsequence: integer;
     Fscore: integer;
@@ -366,47 +363,26 @@ begin
   basculeVersEcran(ecranScore);
 end;
 
-procedure TfmrMain.aniEcranAMasquerFinish(Sender: TObject);
-begin
-  ecranActuel.Visible := false;
-  ecranActuel.Enabled := false;
-  ecranActuel := ecranAVenir;
-  ecranAVenir.Enabled := true;
-end;
-
 procedure TfmrMain.basculeVersEcran(nouvelEcran: TLayout);
 begin
-  if not assigned(ecranActuel) then
-  begin
-    ecranActuel := nouvelEcran;
+  if not assigned(nouvelEcran) then
+    raise Exception.Create('euh...');
+
+  if ecranActuel = nouvelEcran then
+    exit;
+
+  if assigned(ecranActuel) then
+    ecranActuel.Visible := false;
+
+  ecranActuel := nouvelEcran;
+  ecranActuel.BeginUpdate;
+  try
     ecranActuel.Visible := true;
     ecranActuel.Enabled := true;
     ecranActuel.Opacity := 1;
     ecranActuel.BringToFront;
-  end
-  else if (ecranActuel <> nouvelEcran) then
-  begin
-    ecranAVenir := nouvelEcran;
-    ecranAVenir.Visible := true;
-    ecranAVenir.Enabled := false;
-    aniEcranAAfficher.Parent := ecranAVenir;
-    aniEcranAAfficher.PropertyName := 'Position.X';
-    aniEcranAAfficher.Duration := 0.5;
-    aniEcranAAfficher.StartValue := ecranActuel.AbsoluteWidth;
-    aniEcranAAfficher.StopValue := 0;
-    aniEcranAAfficher.Start;
-    aniEcranAMasquer.Parent := ecranActuel;
-    aniEcranAMasquer.PropertyName := 'Position.X';
-    aniEcranAMasquer.Duration := 0.5;
-    aniEcranAMasquer.StartValue := 0;
-    aniEcranAMasquer.StopValue := -ecranActuel.AbsoluteWidth;
-    aniEcranAMasquer.Start;
-  end
-  else if (not ecranActuel.Visible) or (not ecranActuel.Enabled) then
-  begin
-    ecranActuel.Opacity := 1;
-    ecranActuel.Enabled := true;
-    ecranActuel.Visible := true;
+  finally
+    ecranActuel.EndUpdate;
   end;
 end;
 
@@ -558,7 +534,6 @@ begin
   FlecheVersLaDroite.Visible := false;
 {$REGION Gestion des écrans}
   ecranActuel := nil;
-  ecranAVenir := nil;
   ecranMenu.Visible := false;
   ecranScore.Visible := false;
   ecranCredits.Visible := false;
@@ -828,22 +803,22 @@ var
   NewPath, OldPath, FileName, NewFilePath: string;
 begin
 {$IF Defined(DEBUG)}
-  NewPath := tpath.combine(tpath.GetDocumentsPath, tpath.combine('GAMOLF-debug',
+  NewPath := TPath.Combine(TPath.GetDocumentsPath, TPath.Combine('GAMOLF-debug',
     'Pompach'));
 {$ELSE if Defined(RELEASE)}
-  NewPath := tpath.combine(tpath.GetHomePath, tpath.combine('GAMOLF',
+  NewPath := TPath.Combine(TPath.GetHomePath, TPath.Combine('GAMOLF',
     'Pompach'));
 {$ELSE}
 {$MESSAGE FATAL 'setup problem'}
 {$ENDIF}
-  FileName := tpath.getfilename(tParams.getFilePath);
-  NewFilePath := tpath.combine(NewPath, FileName);
+  FileName := TPath.getfilename(tParams.getFilePath);
+  NewFilePath := TPath.Combine(NewPath, FileName);
   if (tfile.Exists(NewFilePath)) then
     tParams.setfoldername(NewPath)
   else
   begin
-    OldPath := tpath.getDirectoryName(tParams.getFilePath);
-    if tfile.Exists(tpath.combine(OldPath, FileName)) then
+    OldPath := TPath.getDirectoryName(tParams.getFilePath);
+    if tfile.Exists(TPath.Combine(OldPath, FileName)) then
       tParams.MoveToFilePath(NewFilePath, false, true)
     else
       tParams.setfoldername(NewPath);
