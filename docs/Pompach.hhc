@@ -1344,6 +1344,14 @@
                                                           <param name="Name" value="Add(string,cardinal,boolean)">
                                                           <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(string,cardinal,boolean).html">
                                                           </OBJECT>
+                                                      <LI> <OBJECT type="text/sitemap">
+                                                          <param name="Name" value="Add(cardinal,boolean)">
+                                                          <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(cardinal,boolean).html">
+                                                          </OBJECT>
+                                                      <LI> <OBJECT type="text/sitemap">
+                                                          <param name="Name" value="Add(cardinal,cardinal,boolean)">
+                                                          <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(cardinal,cardinal,boolean).html">
+                                                          </OBJECT>
                                                   </UL>
                                               <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="GetOldScoreFileName">
@@ -1430,8 +1438,16 @@
                                           </OBJECT>
                                           <UL>
                                               <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="AutoSize">
+                                                  <param name="Local" value="Olf.FMX.TextImageFrame.TOlfFMXTextImageFrame.AutoSize.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="Font">
                                                   <param name="Local" value="Olf.FMX.TextImageFrame.TOlfFMXTextImageFrame.Font.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="HasPendingRefresh">
+                                                  <param name="Local" value="Olf.FMX.TextImageFrame.TOlfFMXTextImageFrame.HasPendingRefresh.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="LetterSpacing">
@@ -1459,8 +1475,16 @@
                                                   <param name="Local" value="Olf.FMX.TextImageFrame.TOlfFMXTextImageFrame.AjoutImageEtRetourneLargeur.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
-                                                  <param name="Name" value="RefreshTexte">
-                                                  <param name="Local" value="Olf.FMX.TextImageFrame.TOlfFMXTextImageFrame.RefreshTexte.html">
+                                                  <param name="Name" value="DefaultOnGetImageIndexOfUnknowChar">
+                                                  <param name="Local" value="Olf.FMX.TextImageFrame.TOlfFMXTextImageFrame.DefaultOnGetImageIndexOfUnknowChar.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="DoEndUpdate">
+                                                  <param name="Local" value="Olf.FMX.TextImageFrame.TOlfFMXTextImageFrame.DoEndUpdate.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Refresh">
+                                                  <param name="Local" value="Olf.FMX.TextImageFrame.TOlfFMXTextImageFrame.Refresh.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="RetourneLargeur">
@@ -2139,8 +2163,24 @@
                                                   <param name="Local" value="fMain.TfmrMain.FormSaveState.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
-                                                  <param name="Name" value="aniEcranAMasquerFinish">
-                                                  <param name="Local" value="fMain.TfmrMain.aniEcranAMasquerFinish.html">
+                                                  <param name="Name" value="Layout2Resized">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout2Resized.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout3Resized">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout3Resized.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout4Resized">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout4Resized.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout5Resized">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout5Resized.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout6Resized">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout6Resized.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="btnCreditsClick">
@@ -2181,6 +2221,10 @@
                                               <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="edtNomduJoueurKeyDown">
                                                   <param name="Local" value="fMain.TfmrMain.edtNomduJoueurKeyDown.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="pnlHeaderResized">
+                                                  <param name="Local" value="fMain.TfmrMain.pnlHeaderResized.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="timerBaisseNiveauBatterieTimer">
@@ -2316,6 +2360,26 @@
                                                   <param name="Local" value="fMain.TfmrMain.Layout1.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout2">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout2.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout3">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout3.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout4">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout4.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout5">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout5.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="Layout6">
+                                                  <param name="Local" value="fMain.TfmrMain.Layout6.html">
+                                                  </OBJECT>
+                                              <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="Pile">
                                                   <param name="Local" value="fMain.TfmrMain.Pile.html">
                                                   </OBJECT>
@@ -2326,14 +2390,6 @@
                                               <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="VertScrollBox1">
                                                   <param name="Local" value="fMain.TfmrMain.VertScrollBox1.html">
-                                                  </OBJECT>
-                                              <LI> <OBJECT type="text/sitemap">
-                                                  <param name="Name" value="aniEcranAAfficher">
-                                                  <param name="Local" value="fMain.TfmrMain.aniEcranAAfficher.html">
-                                                  </OBJECT>
-                                              <LI> <OBJECT type="text/sitemap">
-                                                  <param name="Name" value="aniEcranAMasquer">
-                                                  <param name="Local" value="fMain.TfmrMain.aniEcranAMasquer.html">
                                                   </OBJECT>
                                               <LI> <OBJECT type="text/sitemap">
                                                   <param name="Name" value="btnCredits">
@@ -2552,6 +2608,41 @@
                   <param name="Name" value="iOSapi.GameController">
                   <param name="Local" value="iOSapi.GameController.html">
                   </OBJECT>
+              <LI> <OBJECT type="text/sitemap">
+                  <param name="Name" value="uDMTypoDesTitres">
+                  <param name="Local" value="uDMTypoDesTitres.html">
+                  </OBJECT>
+                  <UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Classes">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TdmTypoDesTitres">
+                                  <param name="Local" value="uDMTypoDesTitres.TdmTypoDesTitres.html">
+                                  </OBJECT>
+                                  <UL>
+                                      <LI> <OBJECT type="text/sitemap">
+                                          <param name="Name" value="Fields">
+                                          </OBJECT>
+                                          <UL>
+                                              <LI> <OBJECT type="text/sitemap">
+                                                  <param name="Name" value="TypoDesTitres">
+                                                  <param name="Local" value="uDMTypoDesTitres.TdmTypoDesTitres.TypoDesTitres.html">
+                                                  </OBJECT>
+                                          </UL>
+                                  </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Variables">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="dmTypoDesTitres">
+                                  <param name="Local" value="uDMTypoDesTitres.dmTypoDesTitres.html">
+                                  </OBJECT>
+                          </UL>
+                  </UL>
               <LI> <OBJECT type="text/sitemap">
                   <param name="Name" value="uKeyboardSpecialKeyTest">
                   <param name="Local" value="uKeyboardSpecialKeyTest.html">
