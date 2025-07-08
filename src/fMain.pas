@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Pompach/
 
   ***************************************************************************
-  File last update : 2025-07-03T10:44:25.777+02:00
-  Signature : 0537c7a761aee92a8015b016e38373d25dc36b39
+  File last update : 2025-07-08T08:51:48.000+02:00
+  Signature : 63fe410eebd583fa0dffc9e9f2f22aae989479d5
   ***************************************************************************
 *)
 
@@ -146,6 +146,11 @@ type
     txtLevelFinDePartie: TOlfFMXTextImageFrame;
     txtScoreFinDePartie: TOlfFMXTextImageFrame;
     timerGameController: TTimer;
+    Layout2: TLayout;
+    Layout3: TLayout;
+    Layout4: TLayout;
+    Layout5: TLayout;
+    Layout6: TLayout;
     procedure FormCreate(Sender: TObject);
     procedure btnPauseClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
@@ -165,6 +170,12 @@ type
     procedure edtNomduJoueurKeyDown(Sender: TObject; var Key: Word;
       var KeyChar: Char; Shift: TShiftState);
     procedure timerGameControllerTimer(Sender: TObject);
+    procedure pnlHeaderResized(Sender: TObject);
+    procedure Layout2Resized(Sender: TObject);
+    procedure Layout3Resized(Sender: TObject);
+    procedure Layout4Resized(Sender: TObject);
+    procedure Layout5Resized(Sender: TObject);
+    procedure Layout6Resized(Sender: TObject);
   private
     { Déclarations privées }
     ecranActuel, ecranAVenir: TLayout;
@@ -403,10 +414,12 @@ end;
 
 procedure TfmrMain.BatterieAPlat(Sender: TObject);
 begin
+  // TODO : à compléter
 end;
 
 procedure TfmrMain.BatterieChargee(Sender: TObject);
 begin
+  // TODO : à compléter
 end;
 
 procedure TfmrMain.btnCreditsClick(Sender: TObject);
@@ -525,16 +538,22 @@ begin
 
   txtTitreEcran.Font := dmTypoDesTitres.TypoDesTitres;
   txtTitreEcran.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
+  txtTitreEcran.AutoSize := true;
   txtLevel.Font := dmTypoDesTitres.TypoDesTitres;
   txtLevel.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
+  txtLevel.AutoSize := true;
   txtScoreActuel.Font := dmTypoDesTitres.TypoDesTitres;
   txtScoreActuel.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
+  txtScoreActuel.AutoSize := true;
   txtSequence.Font := dmTypoDesTitres.TypoDesTitres;
   txtSequence.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
+  txtSequence.AutoSize := true;
   txtScoreFinDePartie.Font := dmTypoDesTitres.TypoDesTitres;
   txtScoreFinDePartie.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
+  txtScoreFinDePartie.AutoSize := true;
   txtLevelFinDePartie.Font := dmTypoDesTitres.TypoDesTitres;
   txtLevelFinDePartie.OnGetImageIndexOfUnknowChar := getConvertedCharImageIndex;
+  txtLevelFinDePartie.AutoSize := true;
   jeuEnCours := false;
   Pile.onBatteryEmpty := BatterieAPlat;
   Pile.onBatteryFull := BatterieChargee;
@@ -729,6 +748,36 @@ begin
   Pile.AnimationActive := true;
   jeuEnCours := false;
   changementOrientation;
+end;
+
+procedure TfmrMain.Layout2Resized(Sender: TObject);
+begin
+  txtSequence.Refresh;
+end;
+
+procedure TfmrMain.Layout3Resized(Sender: TObject);
+begin
+  txtLevel.Refresh;
+end;
+
+procedure TfmrMain.Layout4Resized(Sender: TObject);
+begin
+  txtScoreActuel.Refresh;
+end;
+
+procedure TfmrMain.Layout5Resized(Sender: TObject);
+begin
+  txtLevelFinDePartie.Refresh;
+end;
+
+procedure TfmrMain.Layout6Resized(Sender: TObject);
+begin
+  txtScoreFinDePartie.Refresh;
+end;
+
+procedure TfmrMain.pnlHeaderResized(Sender: TObject);
+begin
+  txtTitreEcran.Refresh;
 end;
 
 procedure TfmrMain.SetjeuEnCours(const Value: Boolean);
